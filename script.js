@@ -71,4 +71,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     block.innerHTML = lines.join("\n");
   });
+
+  // Heart cursor with spark effects
+  document.addEventListener("mousemove", (e) => {
+    const chance = Math.random();
+    if (chance < 0.3) {
+      const spark = document.createElement("div");
+      spark.className = "spark";
+      spark.textContent = "✨";
+      
+      const angle = Math.random() * Math.PI * 2;
+      const distance = 20 + Math.random() * 30;
+      const tx = Math.cos(angle) * distance;
+      const ty = Math.sin(angle) * distance;
+      
+      spark.style.left = e.clientX + "px";
+      spark.style.top = e.clientY + "px";
+      spark.style.setProperty("--tx", tx + "px");
+      spark.style.setProperty("--ty", ty + "px");
+      
+      document.body.appendChild(spark);
+      
+      setTimeout(() => spark.remove(), 800);
+    }
+  });
 });
