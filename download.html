@@ -83,24 +83,180 @@
         .floating-heart:nth-child(4) { right: 25%; animation-delay: 4.5s; }
         
         .container {
-            text-align: center;
-            max-width: 600px;
+            max-width: 1000px;
+            width: 90%;
             animation: fadeInUp 1.2s ease-in-out;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(91, 61, 245, 0.15);
+            text-align: left;
         }
         
-        img {
-            max-width: 400px;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            margin-bottom: 30px;
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            color: #5b3df5;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: #2f1f82;
+            line-height: 1.6;
+        }
+        
+        .github-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: #5b3df5;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(91, 61, 245, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .github-btn:hover {
+            background: #4a2de0;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(91, 61, 245, 0.4);
+            animation: none;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section h2 {
+            font-size: 1.8rem;
+            color: #5b3df5;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .section h3 {
+            font-size: 1.4rem;
+            color: #2f1f82;
+            margin-bottom: 12px;
+            margin-top: 25px;
+            font-weight: 700;
+        }
+        
+        .section p, .section li {
+            font-size: 1rem;
+            color: #2f1f82;
+            line-height: 1.8;
+        }
+        
+        .section ul {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .section li {
+            margin-bottom: 8px;
+        }
+        
+        code {
+            background: rgba(91, 61, 245, 0.08);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-family: "Consolas", "Monaco", "Courier New", monospace;
+            font-size: 0.95em;
+            color: #5b3df5;
+        }
+        
+        pre {
+            background: #000000;
+            color: #E6D5FF;
+            padding: 20px;
             border-radius: 10px;
-            animation: scaleIn 1s ease-in-out;
-            transition: transform 0.5s ease-in-out;
+            overflow-x: auto;
+            margin: 15px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            line-height: 1.6;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        img:hover {
-            transform: scale(1.05);
+        pre:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(91, 61, 245, 0.3);
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #E6D5FF;
+            display: block;
+            white-space: pre;
+        }
+        
+        /* Syntax highlighting colors for code blocks */
+        .keyword { color: #ff79c6; font-weight: 600; }
+        .string { color: #50fa7b; }
+        .number { color: #bd93f9; }
+        .comment { color: #6272a4; font-style: italic; }
+        .function { color: #8be9fd; }
+        .operator { color: #ff79c6; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        table:hover {
+            transform: scale(1.01);
+            box-shadow: 0 4px 20px rgba(91, 61, 245, 0.15);
+        }
+        
+        table th {
+            background: #5b3df5;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 700;
+        }
+        
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #E6D5FF;
+            color: #2f1f82;
+        }
+        
+        table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        table tr {
+            transition: background-color 0.3s ease;
+        }
+        
+        table tbody tr:hover {
+            background-color: rgba(91, 61, 245, 0.05);
         }
         
         .status-text {
@@ -199,6 +355,43 @@
                 transform: translate(var(--tx), var(--ty)) scale(0);
             }
         }
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(91, 61, 245, 0.3);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(91, 61, 245, 0.5);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .section li {
+            animation: slideInLeft 0.5s ease forwards;
+            opacity: 0;
+        }
+        
+        .section.visible li:nth-child(1) { animation-delay: 0.1s; }
+        .section.visible li:nth-child(2) { animation-delay: 0.2s; }
+        .section.visible li:nth-child(3) { animation-delay: 0.3s; }
+        .section.visible li:nth-child(4) { animation-delay: 0.4s; }
+        .section.visible li:nth-child(5) { animation-delay: 0.5s; }
+        .section.visible li:nth-child(6) { animation-delay: 0.6s; }
+        .section.visible li:nth-child(7) { animation-delay: 0.7s; }
+        .section.visible li:nth-child(8) { animation-delay: 0.8s; }
+        .section.visible li:nth-child(9) { animation-delay: 0.9s; }
+        .section.visible li:nth-child(10) { animation-delay: 1s; }
+        .section.visible li:nth-child(11) { animation-delay: 1.1s; }
     </style>
 </head>
 <body>
@@ -217,9 +410,219 @@
         <div class="floating-heart">💗</div>
         
         <div class="container">
-            <img src="images/workinprogess.jpg" alt="LoveLang Work in Progress">
-            <p class="status-text">🚧 Work in Progress</p>
-            <p class="description-text">We are developing the interpreter for LoveLang. Making it beautiful, one line of code at a time. ❤️</p>
+            <div class="header">
+                <h1>💕 Love Language - A Romantic Programming Language</h1>
+                <p>A cute and poetic programming language designed with love, where code reads like love letters!</p>
+                <a href="https://github.com/shaikmaviya/source_code-of-lovelang" target="_blank" class="github-btn">⭐ View on GitHub</a>
+            </div>
+
+            <div class="section">
+                <h2>🌹 Features</h2>
+                <ul>
+                    <li><strong>Variables:</strong> <code>heart name = "Romeo"</code> - Declare variables with heart</li>
+                    <li><strong>Printing:</strong> <code>whisper("Hello!")</code> - Output with whisper</li>
+                    <li><strong>Conditionals:</strong> <code>iflove(condition) { }</code> - If statements</li>
+                    <li><strong>Else-If:</strong> <code>elseheart(condition) { }</code> - Else-if statements</li>
+                    <li><strong>Else:</strong> <code>elselove { }</code> - Else statements</li>
+                    <li><strong>Loops:</strong> <code>forever(i in 1..10) { }</code> - Loop through ranges</li>
+                    <li><strong>Functions:</strong> <code>promise functionName(param) { }</code> - Define functions</li>
+                    <li><strong>String Concat:</strong> Use <code>+</code> to join strings</li>
+                    <li><strong>Comments:</strong> <code>secret This is a comment</code></li>
+                    <li><strong>String Functions:</strong> <code>hug(str1, str2)</code> - Concatenate strings</li>
+                    <li><strong>Exit:</strong> <code>goodbye</code> - End program</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>📖 Quick Start</h2>
+                
+                <h3>Installation</h3>
+                <p>Clone this repository:</p>
+                <pre><code>git clone https://github.com/shaikmaviya/source_code-of-lovelang.git
+cd Love-Language</code></pre>
+                
+                <p>Compile the Java interpreter:</p>
+                <pre><code>javac Main.java</code></pre>
+                
+                <p>Run a Love program:</p>
+                <pre><code>java Main filename.love</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>💘 Examples</h2>
+                
+                <h3>Variables and Printing</h3>
+                <pre><code><span class="keyword">heart</span> name = <span class="string">"Romeo"</span>
+<span class="keyword">heart</span> age = <span class="number">25</span>
+
+<span class="function">whisper</span>(name <span class="operator">+</span> <span class="string">", you are "</span> <span class="operator">+</span> age <span class="operator">+</span> <span class="string">" years old!"</span>)
+<span class="keyword">goodbye</span></code></pre>
+
+                <h3>Conditionals</h3>
+                <pre><code><span class="keyword">heart</span> age = <span class="number">20</span>
+
+<span class="keyword">iflove</span>(age <span class="operator">>=</span> <span class="number">18</span>) {
+  <span class="function">whisper</span>(<span class="string">"You are an adult!"</span>)
+}
+<span class="keyword">elseheart</span>(age <span class="operator">></span> <span class="number">13</span>) {
+  <span class="function">whisper</span>(<span class="string">"You are a teenager!"</span>)
+}
+<span class="keyword">elselove</span>{
+  <span class="function">whisper</span>(<span class="string">"You are young!"</span>)
+}
+
+<span class="keyword">goodbye</span></code></pre>
+
+                <h3>Loops</h3>
+                <pre><code><span class="function">whisper</span>(<span class="string">"Counting to 5:"</span>)
+<span class="keyword">forever</span>(i <span class="keyword">in</span> <span class="number">1</span>..<span class="number">5</span>) {
+  <span class="function">whisper</span>(i)
+}
+
+<span class="keyword">goodbye</span></code></pre>
+
+                <h3>Functions with promise</h3>
+                <pre><code><span class="comment">secret Define a greeting function</span>
+<span class="keyword">promise</span> <span class="function">greet</span>(name) {
+  <span class="function">whisper</span>(<span class="string">"Hello, "</span> <span class="operator">+</span> name <span class="operator">+</span> <span class="string">"!"</span>)
+}
+
+<span class="comment">secret Call the function</span>
+<span class="function">greet</span>(<span class="string">"Juliet"</span>)
+<span class="function">greet</span>(<span class="string">"Romeo"</span>)
+
+<span class="keyword">goodbye</span></code></pre>
+
+                <h3>String Functions</h3>
+                <pre><code><span class="keyword">heart</span> first = <span class="string">"Romeo"</span>
+<span class="keyword">heart</span> second = <span class="string">"Juliet"</span>
+
+<span class="function">whisper</span>(<span class="function">hug</span>(first, second))
+
+<span class="keyword">goodbye</span></code></pre>
+            </div>
+
+            <div class="section">
+                <h2>📝 Language Syntax Reference</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Purpose</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>heart</code></td>
+                            <td>Declare variable</td>
+                            <td><code>heart x = 5</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>whisper</code></td>
+                            <td>Print output</td>
+                            <td><code>whisper("hello")</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>promise</code></td>
+                            <td>Define function</td>
+                            <td><code>promise func(param) { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>iflove</code></td>
+                            <td>If condition</td>
+                            <td><code>iflove(x > 5) { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>elseheart</code></td>
+                            <td>Else-if condition</td>
+                            <td><code>elseheart(x == 5) { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>elselove</code></td>
+                            <td>Else block</td>
+                            <td><code>elselove { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>forever</code></td>
+                            <td>Loop</td>
+                            <td><code>forever(i in 1..10) { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>hug</code></td>
+                            <td>String concatenation</td>
+                            <td><code>hug("a", "b")</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>secret</code></td>
+                            <td>Comments</td>
+                            <td><code>secret This is ignored</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>goodbye</code></td>
+                            <td>Exit program</td>
+                            <td><code>goodbye</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>🎯 Comparison Operators</h2>
+                <ul>
+                    <li><code>==</code> - Equal</li>
+                    <li><code>!=</code> - Not equal</li>
+                    <li><code>></code> - Greater than</li>
+                    <li><code><</code> - Less than</li>
+                    <li><code>>=</code> - Greater than or equal</li>
+                    <li><code><=</code> - Less than or equal</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>📂 Example Files</h2>
+                <ul>
+                    <li><code>examples.love</code> - Basic examples with if-else statements</li>
+                    <li><code>functions_example.love</code> - Examples using promise (functions)</li>
+                    <li><code>momo.love</code> - Simple demo program</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🔧 How It Works</h2>
+                <p>The Love Language interpreter is written in Java. It:</p>
+                <ul>
+                    <li>Reads <code>.love</code> source files</li>
+                    <li>Parses each line as a Love language command</li>
+                    <li>Maintains a variable map for state</li>
+                    <li>Stores user-defined functions</li>
+                    <li>Executes control flow (if/else/loops)</li>
+                    <li>Handles function calls and scoping</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🚀 Running Programs</h2>
+                <pre><code># Compile
+javac Main.java
+
+# Run a program
+java Main yourprogram.love
+
+# Example
+java Main examples.love</code></pre>
+            </div>
+
+            <div class="section">
+                <h2>💬 Creating Your First Program</h2>
+                <p>Create a file named <code>hello.love</code>:</p>
+                <pre><code><span class="keyword">heart</span> name = <span class="string">"World"</span>
+<span class="function">whisper</span>(<span class="string">"Hello, "</span> <span class="operator">+</span> name <span class="operator">+</span> <span class="string">"!"</span>)
+<span class="keyword">goodbye</span></code></pre>
+                
+                <p>Run it:</p>
+                <pre><code>java Main hello.love</code></pre>
+            </div>
         </div>
     </div>
 </body>
@@ -249,4 +652,28 @@
             setTimeout(() => spark.remove(), 800);
         }
     });
+    
+    // Scroll-triggered animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all sections
+    document.querySelectorAll('.section').forEach(section => {
+        observer.observe(section);
+    });
+    
+    // Add initial visibility to header
+    setTimeout(() => {
+        document.querySelector('.header')?.classList.add('visible');
+    }, 300);
 </script>
