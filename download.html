@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
     <style>
         * {
             box-sizing: border-box;
@@ -44,6 +45,22 @@
             text-decoration: none;
             font-weight: 800;
             letter-spacing: 0.2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            object-fit: contain;
+            border-radius: 8px;
+            filter: drop-shadow(0 6px 12px rgba(53, 33, 132, 0.35));
+        }
+
+        .brand-text {
+            font-size: 1.05rem;
         }
         
         .topbar-links a {
@@ -396,7 +413,10 @@
 </head>
 <body>
     <nav class="topbar">
-        <a class="brand" href="index.html">LoveLang</a>
+        <a class="brand" href="index.html" aria-label="LoveLang home">
+            <img class="brand-logo" src="images/logo.png" alt="LoveLang logo" />
+            <span class="brand-text">LoveLang</span>
+        </a>
         <div class="topbar-links">
             <a href="index.html">Home</a>
             <a href="download.html" aria-current="page">Downloads</a>
